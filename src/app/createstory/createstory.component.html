@@ -49,7 +49,7 @@
             Click on the '+' to add a new superhero story. Click on any of the stories to continue with a story. Click on read random to read a random story.
         </div>
         <div class = "thread" *ngIf = "mode[0]">
-            <div class = "yourcomment" style="background-color: aqua; height: 100%;">
+            <div class = "yourcomment" style="height: 100%;">
                 <form [formGroup]="storyform" style="width: 100%; height: 80%; display: flex; flex-direction: column; justify-content: space-evenly;">
                     <input class = "ip" placeholder="Give your superhero a name" type="text" style="width: 100%;" formControlName="name">
                     <textarea class = "ip" placeholder="Give a little bit of context" type="text" style="width: 100%;" formControlName="context"></textarea>
@@ -68,9 +68,10 @@
     
             <div class = "comments">
                 <div class = "comment" style = "word-break: break-all; display: flex; flex-direction: row; flex-wrap: wrap;">
-                    <div class = "comcontent" *ngFor = "let x of randcomments" style = "width: fit-content; background-color: aquamarine;">
+                    <div class = "comcontent" *ngFor = "let x of randcomments" style = "width: fit-content;">
                         {{x.payload.doc.data().comment}}
                     </div>
+   
                 </div>
             </div>
         </div>

@@ -53,9 +53,10 @@ export class CreatestoryComponent implements OnInit {
   }
 
   showstory(story:any){
+    this.changemode(1);
     this.story = story; 
     this.getstory();
-    this.changemode(1);
+    
   }
 
   getstory(){
@@ -92,9 +93,9 @@ export class CreatestoryComponent implements OnInit {
   }
 
   changemode(mode){
-    for(let i of this.mode){i = false;}
+    var ind = -1;
+    for(let i of this.mode){ind += 1; this.mode[ind] = false;}
     this.mode[mode] = true;
-    console.log(this.mode);
   }
 
   random(){
