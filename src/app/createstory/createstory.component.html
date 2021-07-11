@@ -1,1 +1,81 @@
-<p>createstory works!</p>
+<div class = "main" id = "main">
+    <!-- <div class = "header">
+        <div class="starttop">
+            <div class="lstartcontent">
+                <p>Forum</p>
+            </div>
+            <div class="startpic">
+                <img src="../../assets/images/forum.png" height= "200">
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="SEARCH FORUM">
+        </div>
+    </div> -->
+    <div class = "maincontent">
+        <div class = "filter">
+            <div class = "yourcomment" style="flex-direction: row; justify-content: space-evenly;">
+                <div style="font-size: 100%;"><button class = "custbutton" style = "padding: 0% 50%;" (click) = "changemode(0)">+</button></div>
+                <div style="font-size: 100%;"><button class = "custbutton" style = "padding: 0% 5%;" (click) = "random()">Read Random</button></div>
+            </div>
+            <div style="font-size: 200%; text-align: center; width: 100%; font-family: pretty;">Stories: </div>
+            <div *ngFor = "let x of allstories" (click) = "showstory(x)" style = "margin: 5% 2%; cursor: pointer; text-decoration: underline;">
+                {{x.payload.doc.data().name}}
+            </div>
+        </div>
+        <div class = "thread" *ngIf = "mode[1]">
+            <div class = "threadtitle">
+                {{story.payload.doc.data().name}}
+            </div>
+            <div class = "threadtitle" style="font-size: 150%; word-break: break-all;">
+                Context: {{story.payload.doc.data().context}}
+            </div>
+
+            <div class = "comments" *ngIf = "comments != []">
+                <div class = "comment">
+                    <div class = "comcontent">
+                        {{comments.payload.doc.data().comment}}
+                    </div>
+                </div>
+            </div>
+
+            <div class = "yourcomment">
+                <form [formGroup]="replyform" style="width: 100%;"><input class = "ip" placeholder= {{commplace}} type="text" style="width: 80%;" formControlName="replyin"></form>
+                <div style="align-self: flex-end; margin-right: 10%;"><button class = "custbutton" (click) = "reply()">Reply</button></div>
+            </div>
+        </div>
+
+        <div class = "thread" *ngIf = "!(mode[0] || mode[1] || mode[2])" style="height: 100%; width: 100%; font-size: 200%; font-family: pretty; text-align: center; display: flex; flex-direction: column; justify-content: center; padding: 2%;">
+            Click on the '+' to add a new superhero story. Click on any of the stories to continue with a story. Click on read random to read a random story.
+        </div>
+        <div class = "thread" *ngIf = "mode[0]">
+            <div class = "yourcomment" style="background-color: aqua; height: 100%;">
+                <form [formGroup]="storyform" style="width: 100%; height: 80%; display: flex; flex-direction: column; justify-content: space-evenly;">
+                    <input class = "ip" placeholder="Give your superhero a name" type="text" style="width: 100%;" formControlName="name">
+                    <textarea class = "ip" placeholder="Give a little bit of context" type="text" style="width: 100%;" formControlName="context"></textarea>
+                </form>
+                <div style="align-self: flex-end; margin-right: 10%;"><button class = "custbutton" (click) = "addstory()">Add</button></div>
+            </div>
+        </div>
+
+        <div class = "thread" *ngIf = "mode[2]" >
+            <div class = "threadtitle">
+                {{randomstory.payload.doc.data().name}}
+            </div>
+            <div class = "threadtitle" style="font-size: 150%;">
+                Context: {{randomstory.payload.doc.data().context}}
+            </div>
+    
+            <div class = "comments">
+                <div class = "comment" style = "word-break: break-all; display: flex; flex-direction: row; flex-wrap: wrap;">
+                    <div class = "comcontent" *ngFor = "let x of randcomments" style = "width: fit-content; background-color: aquamarine;">
+                        {{x.payload.doc.data().comment}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+</div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreatestoryComponent } from './createstory/createstory.component';
 import { SigninComponent } from './signin/signin.component';
 import { SuperheroinclusionComponent } from './superheroinclusion/superheroinclusion.component';
 import { TimescrollComponent } from './timescroll/timescroll.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'signin',
     component: SigninComponent
+  },
+  {
+    path: 'createstory',
+    component: CreatestoryComponent
   }
 ];
 
