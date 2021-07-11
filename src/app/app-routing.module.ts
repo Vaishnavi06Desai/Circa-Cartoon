@@ -4,7 +4,7 @@ import { CreatestoryComponent } from './createstory/createstory.component';
 import { SigninComponent } from './signin/signin.component';
 import { SuperheroinclusionComponent } from './superheroinclusion/superheroinclusion.component';
 import { TimescrollComponent } from './timescroll/timescroll.component';
-
+import { CartoonvoiceComponent } from './cartoonvoice/cartoonvoice.component';
 const routes: Routes = [
   {
     path: 'home',
@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'createstory',
     component: CreatestoryComponent
+  },
+  {
+    path: 'voice',
+    component: CartoonvoiceComponent
   }
 ];
 
